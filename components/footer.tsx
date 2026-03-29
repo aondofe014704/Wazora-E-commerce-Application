@@ -4,8 +4,8 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="bg-black text-white border-t border-gray-800">
-      <div className="container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-8 md:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           <div>
             <h3 className="text-lg font-bold mb-4">Wazora</h3>
             <p className="text-sm text-gray-400 mb-4">
@@ -121,11 +121,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400 mb-4 md:mb-0">
+        <div className="border-t border-gray-800 mt-8 md:mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-xs md:text-sm text-gray-400 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Wazora. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm">
+          <div className="flex space-x-4 md:space-x-6 text-xs md:text-sm">
             <Link href="#" className="text-gray-400 hover:text-amber-500">
               Terms
             </Link>

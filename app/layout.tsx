@@ -21,11 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 overflow-x-hidden">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

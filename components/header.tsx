@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ShoppingCart, Search, Menu, X, User, Bell } from "lucide-react"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
@@ -23,10 +23,10 @@ export default function Header() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/shop" },
-    { name: "Market Day", href: "/market-day" },
+    { name: "Products", href: "/products" },
+    { name: "Chat", href: "/chat" },
+    { name: "Demo", href: "/demo" },
     { name: "Categories", href: "/categories" },
-    { name: "Sellers", href: "/sellers" },
   ]
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function Header() {
             Market Day is LIVE! Spin the wheel for exclusive discounts!
           </div>
         )}
-        <div className="container flex h-16 items-center">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 flex h-16 items-center">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -73,6 +73,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <nav className="flex flex-col gap-4 mt-8">
                 {navItems.map((item) => (
                   <Link
@@ -87,11 +88,11 @@ export default function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="mr-3 sm:mr-6 flex items-center space-x-2">
             <LogoWithBubbles />
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -107,7 +108,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center ml-auto">
+          <div className="flex items-center ml-auto space-x-1 sm:space-x-2">
             {isSearchOpen ? (
               <div className="relative flex items-center">
                 <Input
@@ -127,17 +128,17 @@ export default function Header() {
               </Button>
             )}
 
-            <Button variant="ghost" size="icon" className="ml-2">
+            <Button variant="ghost" size="icon" className="ml-1 sm:ml-2">
               <Bell className="h-5 w-5" />
               <span className="sr-only">Notifications</span>
             </Button>
 
-            <Button variant="ghost" size="icon" className="ml-2">
+            <Button variant="ghost" size="icon" className="ml-1 sm:ml-2">
               <User className="h-5 w-5" />
               <span className="sr-only">Account</span>
             </Button>
 
-            <Button variant="ghost" size="icon" className="ml-2 relative">
+            <Button variant="ghost" size="icon" className="ml-1 sm:ml-2 relative">
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">Cart</span>
               <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-amber-500 text-black">
